@@ -1,0 +1,79 @@
+/*start reset*/
+body {
+font-family: times, serif;
+}
+a:link {
+  color: blue;
+}
+a:visited {
+  color: purple;
+}
+a:hover {
+  color: red;
+}
+a:active {
+  color: red;
+}
+/*end reset*/
+
+/*index*/
+.exhibiciones{
+  padding: 20px;
+}
+.exhibiciones-links{
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+}
+.accordion-icon {
+  transition: transform 0.2s;
+}
+
+.accordion-button:not(.collapsed) .accordion-icon {
+  transform: rotate(180deg);
+}
+.septimo-hover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  display: none;
+}
+.septimo:hover + .septimo-hover {
+  display: block;
+}
+
+/*7mo encuentro*/
+.lienzo {
+  position: relative;
+  width: 200vw;
+  height: 200vh;
+}
+.septimoEncuentro_lienzoA{
+  position: absolute;
+  width: 100%;
+  left: 10vw; top: 10vh; 
+}
+.septimoEncuentro_lienzoB{
+  position: absolute;
+  width: 100%;
+  left: 150vw; top: 60vh;
+}
+.septimoEncuentro_lienzoC{
+  position: absolute;
+  width: 100%;
+  left: 70vw; top: 150vh;
+}
+.septimoEncuentro_lienzoD{
+  position: absolute;
+  width: 100%;
+  left: 150vw; top: 150vh;
+}
+.lineas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* para que no interfiera con clicks */
+}
