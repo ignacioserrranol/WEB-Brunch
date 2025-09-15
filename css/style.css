@@ -2,7 +2,7 @@
 body {
 font-family: times, serif;
 }
-a:link {
+.exhibiciones a:link,.exhibiciones h1,.exhibiciones h2,.exhibiciones h3,.exhibiciones h4,.exhibiciones h5,.exhibiciones h6, .exhibiciones p {
   color: blue;
 }
 a:visited {
@@ -14,24 +14,42 @@ a:hover {
 a:active {
   color: red;
 }
+ul, ol{
+  list-style: none;
+}
+body{
+  padding: 20px;
+}
 /*end reset*/
 
 /*index*/
-.exhibiciones{
-  padding: 20px;
+.exhibiciones h1, .exhibiciones h2{
+  font-size: 1.1rem;
 }
 .exhibiciones-links{
   display: flex;
   flex-direction: column;
-  padding-left: 40px;
+}
+.exhibiciones ul{
+  padding-left: 2rem;
 }
 .accordion-icon {
   transition: transform 0.2s;
+  width: 1rem;
 }
-
+.accordion-button{
+  font-size: 1rem;
+  font-weight: 500;
+}
 .accordion-button:not(.collapsed) .accordion-icon {
   transform: rotate(180deg);
 }
+.contacto p{
+  margin: 0;
+}
+
+
+
 .septimo-hover {
   position: fixed;
   top: 0;
@@ -44,7 +62,6 @@ a:active {
 .septimo:hover + .septimo-hover {
   display: block;
 }
-
 /*7mo encuentro*/
 .lienzo {
   position: relative;
