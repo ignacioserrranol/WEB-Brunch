@@ -44,13 +44,10 @@ body{
 .accordion-button:not(.collapsed) .accordion-icon {
   transform: rotate(180deg);
 }
-.contacto p{
+.exhibiciones p, .contacto p{
   margin: 0;
 }
-
-
-
-.septimo-hover {
+.septimo-hover, .destacado-sensiblog-img, .fast-img{
   position: fixed;
   top: 0;
   left: 0;
@@ -59,7 +56,19 @@ body{
   z-index: -1;
   display: none;
 }
-.septimo:hover + .septimo-hover {
+.buen-augurio-img, .ondita-sensible-I-img, .la-posibilidad-img, .muestra-de-confianza-img, .futuro-usach-img, .posible-img, .monitoreo-img{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  display: none;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: auto;
+  height: auto;
+}
+.septimo:hover + .septimo-hover, .ondita-sensible-I:hover .ondita-sensible-I-img, .destacado-sensiblog:hover .destacado-sensiblog-img, .monitoreo:hover .monitoreo-img, .fast:hover .fast-img, .buen-augurio:hover .buen-augurio-img, .la-posibilidad:hover .la-posibilidad-img, .muestra-de-confianza:hover .muestra-de-confianza-img, .futuro-usach:hover .futuro-usach-img, .posible:hover .posible-img{
   display: block;
 }
 /*7mo encuentro*/
