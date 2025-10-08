@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Pruebitas</title>
+</head>
+<body>
+  <div class="pruebitas_fotos">
+    <img src="../img/pruebitas/001.png" alt="" class="pruebitas_fotos001 mover">
+    <img src="../img/pruebitas/002.png" alt="" class="pruebitas_fotos002 mover">
+    <img src="../img/pruebitas/003.png" alt="" class="pruebitas_fotos003 mover">
+    <img src="../img/pruebitas/004.png" alt="" class="pruebitas_fotos004 mover">
+    <img src="../img/pruebitas/005.png" alt="" class="pruebitas_fotos005 mover">
+    <img src="../img/pruebitas/006.png" alt="" class="pruebitas_fotos006 mover">
+    <img src="../img/pruebitas/007.png" alt="" class="pruebitas_fotos007 mover">
+    <img src="../img/pruebitas/008.png" alt="" class="pruebitas_fotos008 mover">
+    <img src="../img/pruebitas/009.png" alt="" class="pruebitas_fotos009 mover">
+    <img src="../img/pruebitas/010.png" alt="" class="pruebitas_fotos010 mover">
+    <img src="../img/pruebitas/011.png" alt="" class="pruebitas_fotos011 mover">
+    <img src="../img/pruebitas/012.png" alt="" class="pruebitas_fotos012 mover">
+  </div>
+  <div class="pruebitas_rectangulo">
+
+  </div>
+  <script>
+    (function() {
+      const imgs = document.querySelectorAll('.mover');
+      let active = null;
+      let startX = 0, startY = 0;
+      let startLeft = 0, startTop = 0;
+      let z = 1;
+
+      window.addEventListener('load', () => {
+        const maxW = window.innerWidth;
+        const maxH = window.innerHeight;
+
+      imgs.forEach(img => {
+        const rectW = img.offsetWidth || img.naturalWidth;
+        const rectH = img.offsetHeight || img.naturalHeight;
+
+        const randomLeft = Math.max(0, Math.random() * (maxW - rectW));
+        const randomTop  = Math.max(0, Math.random() * (maxH - rectH));
+
+        img.style.left = `${randomLeft}px`;
+        img.style.top = `${randomTop}px`;
+        });
+      });
+
+      imgs.forEach(img => {
+        img.addEventListener('pointerdown', e => {
+          e.preventDefault();
+          active = img;
+          startX = e.clientX;
+          startY = e.clientY;
+          startLeft = parseFloat(img.style.left) || 0;
+          startTop = parseFloat(img.style.top) || 0;
+          img.setPointerCapture(e.pointerId);
+          img.style.zIndex = ++z;
+        });
+
+        img.addEventListener('pointermove', e => {
+          if (!active || active !== img) return;
+          const dx = e.clientX - startX;
+          const dy = e.clientY - startY;
+          active.style.left = `${startLeft + dx}px`;
+          active.style.top = `${startTop + dy}px`;
+        });
+
+        img.addEventListener('pointerup', e => {
+          if (active === img) {
+            img.releasePointerCapture(e.pointerId);
+            active = null;
+          }
+        });
+
+        img.addEventListener('lostpointercapture', () => {
+          active = null;
+        });
+
+        img.addEventListener('dragstart', e => e.preventDefault());
+      });
+
+      document.addEventListener('pointerup', () => active = null);
+    })();
+  </script>
+</body>
+</html>
